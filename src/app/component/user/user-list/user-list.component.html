@@ -1,0 +1,38 @@
+    <ng-container *ngIf="(users$|async) as result" [ngSwitch]="result.dataState">
+    <ng-container *ngSwitchCase="DataStateEnum.LOADING"> en cours de chargement</ng-container>
+
+    <ng-container *ngSwitchCase="DataStateEnum.ERROR"> Erreur</ng-container>
+    <ng-container *ngSwitchCase="DataStateEnum.LOADED">
+        <div class="container">
+           
+            <table class="table table-dark">
+                <thead>
+                  <tr>
+                    <th scope="col">id</th>
+                    <th scope="col">name</th>
+                    <th scope="col">Lastname</th>
+                    <th scope="col">email</th>
+                    <th scope="col">tel</th>
+                    <th scope="col"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let us of result.data" scope="row">
+                        <td >{{us.id}}</td>
+                        <td >{{us.name}}</td>
+                        <td >{{us.lastname}}</td>
+                        <td >{{us.email}}</td>
+                        <td >{{us.tel}}</td>
+                        <td><button  type="button" class="btn btn-danger " (click)="deleteUser(us)">delete</button>
+                            <button style="margin-left: 0.3em;" type="button" class="btn btn-danger" (click)="onUpdate(us)"> update</button></td>
+                        
+                    </tr>
+                </tbody>
+              </table>
+        </div>
+        
+    </ng-container>
+</ng-container>
+   
+
+

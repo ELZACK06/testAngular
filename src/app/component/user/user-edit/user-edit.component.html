@@ -1,0 +1,20 @@
+
+<div class="container mx-auto">
+    
+    <form *ngIf="userformGroup" [formGroup]="userformGroup">
+        
+        <div class="form-group">
+          <label for="emailFrom">Email address</label>
+          <input type="email" class="form-control" id="emailForm" placeholder="name@example.com" formControlName="email"/>
+          <label for="nameForm">name</label>
+          <input type="text" class="form-control" id="nameForm" formControlName="name"/>
+          <label for="lastNameForm">last name</label>
+          <input type="email" class="form-control" id="lastNameForm" formControlName="lastname"/>
+          <label for="TelForm">tel</label>
+          <input type="email" class="form-control" id="TelForm" formControlName="tel" />
+          <div style="display: grid; place-items: center;" > <button  class="btn btn-primary mt-5 " (click)="updateUser()"> edit</button></div>
+        </div>
+    
+      </form>
+    
+</div>
